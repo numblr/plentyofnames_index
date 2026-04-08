@@ -8,6 +8,7 @@
 <style>
   * { box-sizing: border-box; }
   html, body { margin: 0; padding: 0; height: 100%; font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif; background: #1a1a1a; color: #fff; }
+  html { overflow-y: scroll; }
   body { display: flex; flex-direction: column; min-height: 100vh; }
 
   .banner {
@@ -62,6 +63,51 @@
     background: #fff;
     min-height: 70vh;
   }
+
+  .software-page {
+    flex: 1;
+    # background: #F8F8F8;
+    background: #121212;
+    color: #333;
+    padding: 60px 40px;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+  }
+  .tile-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 220px));
+    gap: 40px;
+    justify-content: center;
+  }
+  .tile {
+    text-align: left;
+    text-decoration: none;
+    color: #333;
+    display: block;
+  }
+  .tile-cover {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background: #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #888;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+  }
+  .tile-title {
+    display: block;
+    color: #2DBAE1;
+    font-size: 0.95rem;
+    line-height: 1.3;
+  }
+  .tile-artist {
+    display: block;
+    color: #666;
+    font-size: 0.85rem;
+    margin-top: 2px;
+  }
+  .tile:hover .tile-title { text-decoration: underline; }
 </style>
 </head>
 <body>
@@ -78,7 +124,20 @@
     <iframe src="https://plentyofnames.bandcamp.com" title="Music"></iframe>
   </section>
   <section id="shows" class="tab-content">
-    <iframe src="https://www.songkick.com/artists/plentyofnames" title="Shows"></iframe>
+    <div class="software-page">
+      <div class="tile-grid">
+        <a class="tile" href="#">
+          <div class="tile-cover">cover</div>
+          <span class="tile-title">Project One</span>
+          <span class="tile-artist">by Plenty of Names</span>
+        </a>
+        <a class="tile" href="#">
+          <div class="tile-cover">cover</div>
+          <span class="tile-title">Project Two</span>
+          <span class="tile-artist">by Plenty of Names</span>
+        </a>
+      </div>
+    </div>
   </section>
 
   <script>
