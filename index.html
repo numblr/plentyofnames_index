@@ -21,9 +21,9 @@
     <iframe src="https://plentyofnames.bandcamp.com" title="Music"></iframe>
   </section>
   <section id="shows" class="tab-content">
-    <div class="software-page">
+    <div class="software-page" data-view="grid">
       <div class="tile-grid">
-        <a class="tile" href="#">
+        <a class="tile" href="#" data-project="plock">
           <div class="tile-cover"></div>
           <span class="tile-title">PLOCK</span>
           <span class="tile-artist">Analog rytm pattern editor</span>
@@ -34,17 +34,41 @@
           <span class="tile-artist">by Plenty of Names</span>
         </a>
       </div>
+      <iframe class="software-frame" title="Software"></iframe>
     </div>
   </section>
 
   <script>
     const tabs = document.querySelectorAll('.tab');
     const contents = document.querySelectorAll('.tab-content');
+    const softwarePage = document.querySelector('.software-page');
+    const softwareFrame = document.querySelector('.software-frame');
+
+    const projectUrls = {
+      plock: 'https://plentyofnames.github.io/plock/plock.html'
+    };
+
+    const resetSoftwareView = () => {
+      softwarePage.dataset.view = 'grid';
+      softwareFrame.src = 'about:blank';
+    };
+
     tabs.forEach(tab => {
       tab.addEventListener('click', () => {
         const target = tab.dataset.target;
+        if (target === 'shows') resetSoftwareView();
         tabs.forEach(t => t.classList.toggle('active', t === tab));
         contents.forEach(c => c.classList.toggle('active', c.id === target));
+      });
+    });
+
+    document.querySelectorAll('.tile[data-project]').forEach(tile => {
+      tile.addEventListener('click', (e) => {
+        e.preventDefault();
+        const url = projectUrls[tile.dataset.project];
+        if (!url) return;
+        softwareFrame.src = url;
+        softwarePage.dataset.view = 'frame';
       });
     });
   </script>

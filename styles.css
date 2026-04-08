@@ -66,12 +66,25 @@ body { display: flex; flex-direction: column; min-height: 100vh; }
 
 .software-page {
   flex: 1;
+  display: flex;
+  flex-direction: column;
   /* background: #F8F8F8; */
   background: #121212;
   color: #333;
-  padding: 60px 40px;
   font-family: "Helvetica Neue", Arial, sans-serif;
 }
+.software-page[data-view="grid"] .tile-grid { display: grid; }
+.software-page[data-view="grid"] .software-frame { display: none; }
+.software-page[data-view="frame"] .tile-grid { display: none; }
+.software-page[data-view="frame"] .software-frame {
+  display: block;
+  flex: 1;
+  width: 100%;
+  border: none;
+  background: #fff;
+  min-height: 70vh;
+}
+.software-page .tile-grid { padding: 60px 40px; }
 .tile-grid {
   display: grid;
   grid-template-columns: repeat(2, 368px);
