@@ -74,7 +74,7 @@ body { display: flex; flex-direction: column; min-height: 100vh; }
 }
 .tile-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 220px));
+  grid-template-columns: repeat(2, 368px);
   gap: 40px;
   justify-content: center;
 }
@@ -83,11 +83,12 @@ body { display: flex; flex-direction: column; min-height: 100vh; }
   text-decoration: none;
   color: #333;
   display: block;
+  width: 368px;
 }
 .tile-cover {
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  background: #ddd;
+  width: 368px;
+  height: 368px;
+  background: #ddd url("plock.png") center / cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
