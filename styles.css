@@ -105,7 +105,7 @@ body[data-software-view="frame"] .banner { display: none; }
   position: relative;
   width: 368px;
   height: 368px;
-  background: #ddd url("plock.png") center / cover no-repeat;
+  background: #ddd url("plock.png") left top / cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
