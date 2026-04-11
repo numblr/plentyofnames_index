@@ -57,7 +57,7 @@
     tabs.forEach(tab => {
       tab.addEventListener('click', () => {
         const target = tab.dataset.target;
-        if (target === 'shows') resetSoftwareView();
+        resetSoftwareView();
         tabs.forEach(t => t.classList.toggle('active', t === tab));
         contents.forEach(c => c.classList.toggle('active', c.id === target));
       });
